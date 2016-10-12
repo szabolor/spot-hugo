@@ -1,0 +1,24 @@
+{{- partial "header.html" . }}
+{{- partial "navbar.html" . }}
+
+<header>
+  <h1>Események</h1>
+</header>
+
+<div class="content">
+  <div class="grid">
+  {{- range .Data.Terms.ByCount }}
+    {{- $page := (index .WeightedPages 0).Page}}
+    <div class="album">
+      <div class="card">
+        <a class="link" href="/{{ $.Data.Plural }}/{{ .Name | urlize }}"></a>
+        <div class="cover" style="background-image: url({{ $page.Params.gallerybase }}/{{ $page.Params.cover }});"></div>
+        <div class="title">{{ .Name }} [{{ len .WeightedPages }}]</div>
+      </div>
+    </div>  
+  {{- end }}
+    {{- partial "grid_filler.html" . }}
+  </div>
+</div>
+
+{{- partial "footer.html" . }}

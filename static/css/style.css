@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  background-color: #ddd;
+}
+
+.content {
+  flex: 1;
+  margin: 20px 5px 10px 5px;
+  z-index: 0;
+}
+
+#logo {
+  width: 60%;
+  margin: auto;
+  padding: 4em 0 4em 0;
+  max-width: 500px;
+}
+
+nav {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  background-color: #333;
+  box-shadow: 0 5px 10px rgba(51, 51, 51, 0.25);
+}
+
+#brand {
+  font-weight: bold;
+  color: #fff;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  font-size: 1.1em;
+  color: #eee;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav li a:hover {
+  background-color: #111;
+}
+
+nav li .dropdown {
+  display: inline-block;
+}
+
+nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 0;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+}
+
+nav .dropdown-content a {
+  padding: 8px 8px;
+}
+
+nav .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-top: 4px dashed;
+  border-top: 4px solid\9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  vertical-align: middle;
+}
+
+footer {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  background-color: #333;
+  margin: 3em 0 0 0;
+  box-shadow: 0 -5px 10px rgba(51, 51, 51, 0.25);
+}
+
+footer > p {
+  margin: auto;
+  width: 100%;
+  color: #eee;
+  text-align: center;
+  line-height: 3em;
+  font-weight: bold;
+}
+
+.gallery {
+  position: relative;
+}
+
+.resp-width {
+  margin: auto;
+}
+
+.photo-in-gallery {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  /*background-color: #fff;*/
+  background-color: rgba(0,0,0,0);
+  background-size: cover;
+  display: block;
+}
+
+.photo-in-gallery {
+  display: block;
+  margin: 0;
+}
+
+.photo-in-gallery > a {
+  width: inherit;
+  height: inherit;
+}
+
+.photo-in-gallery > a > img {
+  width: inherit;
+  height: inherit;
+}
+
+header {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #111;
+  text-shadow: 0px 0px 5px #fff;
+}
+
+header > h1 {
+  margin: 30px 0 10px 0;
+  font-size: 2em;
+}
+
+header > h2 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.grid {
+  margin: auto;
+  margin-top: 10px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  min-width: 320px;
+}
+
+.album-subtitle {
+  margin-left: 5em;
+  font-size: 1.5em;
+}
+
+.album {
+  width: 400px;
+  display: inline-block;
+  float: left;
+}
+
+.album > .card {
+  box-shadow: 0 0 10px rgba(154, 154, 154, 0.65);
+  background-color: #fff;
+  position: relative;
+  border-radius: 5px;
+  /*border: 1px solid rgba(121, 121, 121, 0.42);*/
+  margin-bottom: 20px;
+  height: 320px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.album > .card > .link {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
+  background: transparent;
+}
+
+.album > .card > .cover {
+  height: 250px;
+  background-size: cover;
+  background-image: url("/img/test_pattern.png");
+  background-position: center;
+  border-radius: 5px 5px 0 0;
+}
+
+.album > .card > .title {
+  height: 70px;
+  width: 400px;
+  display: table-cell; 
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.2em;
+  overflow: hidden;
+  padding: 0 10px 0 10px;
+  text-align: center;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.album > .card > .date {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  padding: 2px 7px 2px 7px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0 5px 5px 0;
+
+  color: #eee;
+  background-color: rgba(56, 56, 56, 0.75);
+
+}
+
+.album > .card > .date > .year {
+  font-size: 16px;
+}
+
+.album > .card > .date > .month {
+  font-size: 15px;
+  margin-top: -5px;
+}
+
+@media screen and (max-width: 600px) {
+  #logo {
+    display: none;
+  }
+
+  .album-subtitle {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav .dropdown-content {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .album {
+    width: 310px;
+  }
+
+  .album > .card > .cover {
+    height: 200px;
+  }
+
+  .album > .card {
+    height: 270px;
+  }
+
+  .album > .card > .title {
+    width: 310px;
+  }
+}
+
+@media screen and (min-width: 630px) {
+  nav li {
+    float: left;
+  }
+
+  nav .float-right {
+    float: right;
+  }
+
+  .resp-width {
+    width: 620px;
+  }
+
+  header > h1 {
+    font-size: 3em;
+  }
+
+  header > h2 {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 870px) {
+  .resp-width {
+    width: 850px;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .resp-width {
+    width: 1000px;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .resp-width {
+    width: 1200px;
+  }
+}
+
+@media screen and (min-width: 1650px) {
+  .resp-width {
+    width: 1600px;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .resp-width {
+    width: 1850px;
+  }
+}

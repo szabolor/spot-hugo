@@ -1,0 +1,27 @@
+{{- partial "header_gallery.html" . }}
+{{- partial "navbar.html" . }}
+
+<header>
+  <h1>{{ .Title }}</h1>
+</header>
+
+<div class="content">
+<div class="grid">
+  {{- range .Data.Pages }}
+  <div class="album">
+    <div class="card">
+      <a class="link" href="{{ .Permalink }}"></a>
+      <div class="cover" style="background-image: url({{ .Params.gallerybase }}/{{ .Params.cover }});"></div>
+      <div class="title">{{ .Title }}</div>
+      <div class="date">
+        <div class="year">{{ dateFormat "2006" .Date}}</div>
+        <div class="month">{{ dateFormat "01.02." .Date}}</div>
+      </div>
+    </div>
+  </div>
+  {{- end }}
+  {{- partial "grid_filler.html" . }}
+</div>
+</div>
+
+{{- partial "footer.html" . }}

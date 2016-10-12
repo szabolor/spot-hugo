@@ -1,0 +1,33 @@
+{{- partial "header_gallery.html" . }}
+{{- partial "navbar.html" . }}
+{{- partial "title_section.html" . }}
+{{- $.Scratch.Set "find_depth" (add (len (split .Permalink "/")) 1) }}
+
+{{- $start_year := (time (print .Date.Year "-01-01")).Unix }}
+{{- $finish_year := (time (print (add .Date.Year 1) "-01-01")).Unix }}
+<div class="content">
+{{- range (where (where (where .Site.Pages "Date.Unix" ">=" $start_year) "Date.Unix" "<" $finish_year) "Type" "in" (slice "photo" "sublist")).GroupByDate "2006-01" "asc" }}
+<hr>
+<h3 class="album-subtitle">{{ index $.Site.Data.month_hu (time (print .Key "-01")).Month }}</h3>
+<div class="grid">
+  {{- range .Pages.ByDate }}
+  {{- if (and (in .Permalink $.Permalink) (eq (len (split .Permalink "/")) ($.Scratch.Get "find_depth")))}}
+  <div class="album">
+    <div class="card">
+      <a class="link" href="{{ .Permalink }}"></a>
+      <div class="cover" style="background-image: url({{ .Params.gallerybase }}/{{ .Params.cover }});"></div>
+      <div class="title">{{ .Title }}</div>
+      <div class="date">
+        <div class="year">{{ dateFormat "2006" .Date}}</div>
+        <div class="month">{{ dateFormat "01.02." .Date}}</div>
+      </div>
+    </div>
+  </div>
+  {{- end }}
+  {{- end }}
+  {{- partial "grid_filler.html" . }}
+</div>
+{{- end }}
+</div>
+
+{{- partial "footer.html" . }}

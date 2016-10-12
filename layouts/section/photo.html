@@ -1,0 +1,28 @@
+{{- partial "header.html" . }}
+{{- partial "navbar.html" . }}
+<header>
+  <h1>Archívum</h1>
+</header>
+
+{{- $.Scratch.Set "length" (add (len (split .Permalink "/")) 1) }}
+<div class="content">
+  <div class="grid">
+  {{- range .Data.Pages }}
+  {{- if (and (in .Permalink $.Permalink) (eq (len (split .Permalink "/")) ($.Scratch.Get "length")))}}
+    <div class="album">
+      <div class="card">
+        <a class="link" href="{{ .Permalink }}"></a>
+        <div class="cover" style="background-image: url({{ .Params.cover }});"></div>
+        <div class="title">{{ .Title }}</div>
+        <div class="date">
+          <div class="year">{{ dateFormat "2006" .Date}}</div>
+          <div class="month">{{ dateFormat "01.02." .Date}}</div>
+        </div>
+      </div>
+    </div>
+    {{- end }}
+  {{- end }}
+  {{- partial "grid_filler.html" . }}
+  </div>
+</div>
+{{- partial "footer.html" . }}

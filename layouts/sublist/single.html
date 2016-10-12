@@ -1,0 +1,27 @@
+{{- partial "header_gallery.html" . }}
+{{- partial "navbar.html" . }}
+{{- partial "title_section.html" . }}
+
+{{ $uuid := .Params.uuid }}
+
+<div class="content">
+<div class="grid">
+{{- range (sort (index .Site.Taxonomies.levels $uuid) ".Page.Date")}}
+  {{- if (ne .Page.Params.uuid $uuid)}}
+  <div class="album">
+    <div class="card">
+      <a class="link" href="{{ .Page.Permalink }}"></a>
+      <div class="cover" style="background-image: url({{ .Page.Params.gallerybase }}/{{ .Page.Params.cover }});"></div>
+      <div class="title">{{ .Page.Title }}</div>
+      <div class="date">
+        <div class="year">{{ dateFormat "2006" .Page.Date}}</div>
+        <div class="month">{{ dateFormat "01.02." .Page.Date}}</div>
+      </div>
+    </div>
+  </div>
+  {{- end }}
+{{- end }}
+{{- partial "grid_filler.html" . }}
+</div>
+</div>
+{{- partial "footer.html" . }}

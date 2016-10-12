@@ -1,0 +1,8 @@
+<header>
+  {{- if in (slice "photo" "sublist" "yearlist") .Type }}
+  <h1>{{ .Title }}</h1>
+  {{- end }}
+  {{- if in (slice "photo") .Type}}
+  <h2>{{ dateFormat "2006.01.02." .Date }}</h2>
+  {{- end }}
+</header>

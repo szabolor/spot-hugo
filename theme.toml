@@ -1,0 +1,12 @@
+name = "SPOT"
+license = "GNU GPLv3"
+licenselink = "https://www.gnu.org/licenses/gpl-3.0.txt"
+description = "Responsive photography template with lightbox and justified layout"
+homepage = ""
+tags = ["photography", "justified", "photoswipe", "lightbox", "photo"]
+features = ["photography", "justified", "photoswipe", "lightbox", "photo"]
+min_version = 0.17
+
+[author]
+  name = "Lóránt SZABÓ"
+  homepage = ""

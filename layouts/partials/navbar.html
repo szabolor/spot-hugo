@@ -1,0 +1,27 @@
+<nav>
+  <ul class="resp-width">
+    {{- range .Site.Menus.nav }}
+    <li class="{{ if .HasChildren -}}dropdown{{- end }} {{ with .Post }}float-right{{ end }}">
+      <a {{ with .Identifier -}}id="{{ . }}"{{- end }} href="{{ .URL }}">{{ .Pre }}{{ .Name }}{{ if .HasChildren -}}<span class="caret"></span>{{- end }}</a>
+      {{- if .HasChildren }}
+      <div class="dropdown-content">
+        {{- range .Children }}
+        {{- $url := .URL }}
+        {{ .Pre }}{{ with .Name }}<a href="{{$url}}">{{ . }}</a>{{ end }}{{ .Post }}
+        {{- end }}
+      </div>
+      {{- end }}
+    </li>
+    {{- end }}
+    <li class="dropdown">
+    <a id="events" href="/events">Események<span class="caret"></span></a>
+      <div class="dropdown-content">
+      {{- range .Site.Taxonomies.events.ByCount }}
+        <a href="/events/{{ .Name | urlize }}">{{.Name}}</a>
+      {{- end }}
+      <hr>
+      <a href="/events">Összes esemény</a>
+      </div>
+    </li>
+  </ul>
+</nav>

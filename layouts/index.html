@@ -1,0 +1,50 @@
+{{- partial "header_gallery.html" . }}
+{{- partial "navbar.html" . }}
+
+<div id="logo">
+  <object type="image/svg+xml" data="/img/logo.svg" alt="SPOT"></object>
+</div>
+
+<div class="content">
+<div class="grid">
+  {{- range first 20 (where .Site.Pages.ByDate.Reverse "Type" "in" (slice "photo" "sublist"))}}
+  {{- if (and (in .Permalink $.Permalink) (eq (len (split .Permalink "/")) 7))}}
+  <div class="album">
+    <div class="card">
+      <a class="link" href="{{ .Permalink }}"></a>
+      <div class="cover" style="background-image: url({{ .Params.gallerybase }}/{{ .Params.cover }});"></div>
+      <div class="title">{{ .Title }}</div>
+      <div class="date">
+        <div class="year">{{ dateFormat "2006" .Date}}</div>
+        <div class="month">{{ dateFormat "01.02." .Date}}</div>
+      </div>
+    </div>
+  </div>
+  {{- end }}
+  {{- end }}
+  <!-- BEGIN filler elements -->
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <div class="album"></div>
+  <!-- END filler elements -->
+</div>
+</div>
+
+{{- partial "footer.html" . }}
