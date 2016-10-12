@@ -48,7 +48,8 @@ gallerybase = "/photos/2015/20151109_dezso/vagas"
       "width": 2048,
       "filename": "1109-210846-csenge.jpg"
     },
-}```
+}
+```
 
 
 ##Screen captures:
